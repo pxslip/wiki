@@ -4,14 +4,15 @@ A community effort to move the contents of the Wiki and update it to the current
 
 ### Website: [Project Path of Exile Wiki](https://poewiki.net)
 
+## Importing the dump
 
-## Make sure you read before-import.md before importing the dump. 
+**READ [before-import.md](./before-import.md) before importing the dump**
 
 Follow the import instructions here: https://www.mediawiki.org/wiki/Manual:Importing_XML_dumps
 
 Once you have imported the dump and have ~76,541 pages populated on the wiki, go to https://pathofexile.fandom.com/wiki/Special:CargoTables and click on the links that are to the right of the table name.
 
-For example: 
+For example:
 
 > amulets (View | Drilldown) - 133 rows (Declared by Template:Item/cargo/amulets, attached by Template:Item/cargo/attach/amulets)
 
