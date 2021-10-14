@@ -21,3 +21,6 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
+# Update the 000-default vhost to point to the www directory in the repo
+RUN sed -i 's/#ServerName www.example.com/ServerName poewiki.local/' /etc/apache2/sites-available/000-default.conf \
+    && sed -i "s+DocumentRoot /var/www/html+DocumentRoot $(dirname $(pwd))/www+" /etc/apache2/sites-available/000-default.conf
