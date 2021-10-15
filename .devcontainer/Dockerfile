@@ -15,12 +15,18 @@ ARG NODE_VERSION="none"
 RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
 # [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends librsvg2-bin imagemagick python3 libicu-dev libonig-dev\
+    && docker-php-ext-install -j "$(nproc)" intl mbstring mysqli opcache\
+    && pecl install APCu-5.1.20\
+    && docker-php-ext-enable apcu\
+    && rm -r /tmp/pear
+RUN a2enmod rewrite
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
-# Update the 000-default vhost to point to the www directory in the repo
-RUN sed -i 's/#ServerName www.example.com/ServerName poewiki.local/' /etc/apache2/sites-available/000-default.conf \
-    && sed -i "s+DocumentRoot /var/www/html+DocumentRoot $(dirname $(pwd))/www+" /etc/apache2/sites-available/000-default.conf
+# Set the mediawiki version for the installer
+ARG MEDIAWIKI_VERSION=1.36.2
+ENV MEDIAWIKI_VERSION=${MEDIAWIKI_VERSION}

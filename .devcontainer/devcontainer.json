@@ -25,22 +25,22 @@
 
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-	"felixfbecker.php-debug",
-	"mrmlnc.vscode-apache",
-	"mtxr.sqltools",
-	"mtxr.sqltools-driver-mysql",
-	"bmewburn.vscode-intelephense-client",
-	"esbenp.prettier-vscode",
-	"editorconfig.editorconfig",
-	"getpsalm.psalm-vscode-plugin",
-	"mutantdino.resourcemonitor"
-],
+    "felixfbecker.php-debug",
+    "mrmlnc.vscode-apache",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-mysql",
+    "bmewburn.vscode-intelephense-client",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "getpsalm.psalm-vscode-plugin",
+    "mutantdino.resourcemonitor"
+  ],
 
   // For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
-  "forwardPorts": [80, 3306],
+  "forwardPorts": ["80:8080", "3306:8306"],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
+  "postCreateCommand": ".devcontainer/install-media-wiki.sh",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "vscode",
