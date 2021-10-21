@@ -1,0 +1,1803 @@
+/*
+ * This stylesheet is loaded on both desktop and mobile views.
+ * 
+ * Desktop-only styles should go in MediaWiki:Common.css or MediaWiki:Vector.css if theme related.
+ * Mobile-only styles should go in MediaWiki:Mobile.css.
+ */
+
+/*
+ * Colors exported from Metadata/UI/UISettings.xml wherein 3-digit colors are in RGB format. 4-digit colors
+ * are not in any known format and have therefore been approximated.
+ */
+:root {
+  --poe-color-default: rgb(127, 127, 127);
+  --poe-color-valuedefault: rgb(255, 255, 255);
+  --poe-color-pink: rgb(255, 192, 203);
+  --poe-color-dodgerblue: rgb(30, 144, 255);
+  --poe-color-fire: rgb(150, 0, 0);
+  --poe-color-cold: rgb(54, 100, 146);
+  --poe-color-lightning: rgb(255, 215, 0);
+  --poe-color-chaos: rgb(208, 32, 144);
+  --poe-color-augmented: rgb(136, 136, 255);
+  --poe-color-crafted: rgb(184, 218, 242);
+  --poe-color-fractured: rgb(162, 145, 98);
+  --poe-color-enchanted: rgb(184, 218, 242);
+  --poe-color-unmet: rgb(210, 0, 0);
+  --poe-color-uniqueitem: rgb(175, 96, 37);
+  --poe-color-unique: rgb(175, 96, 37);
+  --poe-color-rareitem: rgb(255, 255, 119);
+  --poe-color-rare: rgb(255, 255, 119);
+  --poe-color-magicitem: rgb(136, 136, 255);
+  --poe-color-magic: rgb(136, 136, 255);
+  --poe-color-whiteitem: rgb(200, 200, 200);
+  --poe-color-normal: rgb(200, 200, 200);
+  --poe-color-gemitem: rgb(27, 162, 155);
+  --poe-color-gem: rgb(27, 162, 155);
+  --poe-color-currencyitem: rgb(170, 158, 130);
+  --poe-color-currency: rgb(170, 158, 130);
+  --poe-color-questitem: rgb(74, 230, 58);
+  --poe-color-quest: rgb(74, 230, 58);
+  --poe-color-nemesismod: rgb(255, 200, 0);
+  --poe-color-nemesismodoutline: rgb(219, 34, 0); /* 220,255,40,0 */
+  --poe-color-talismanmod: rgb(141, 241, 79);
+  --poe-color-talismanmodoutline: rgb(0, 0, 0); /* 220,0,0,0 */
+  --poe-color-title: rgb(231, 180, 120);
+  --poe-color-corrupted: rgb(210, 0, 0);
+  --poe-color-favour: rgb(170, 158, 130);
+  --poe-color-supporterpacknewitem: rgb(180, 96, 0);
+  --poe-color-supporterpackitem: rgb(163, 141, 109);
+  --poe-color-bloodlinemod: rgb(210, 0, 220);
+  --poe-color-bloodlinemodoutline: rgb(58, 0, 125); /* 200,74,0,160 */
+  --poe-color-tormentmod: rgb(50, 230, 100);
+  --poe-color-tormentmodoutline: rgb(0, 78, 117); /* 200,0,100,150 */
+  --poe-color-canttradeormodify: rgb(210, 0, 0);
+  --poe-color-lockedtoaccount: rgb(210, 0, 0);
+  --poe-color-divination: rgb(14, 186, 255);
+  --poe-color-prophecy: rgb(181, 75, 255);
+  --poe-color-essencemod: rgb(164, 210, 255);
+  --poe-color-essencemodoutline: rgb(0, 41, 82); /* 210,0,50,100 */
+  --poe-color-premiumchat: rgb(253, 242, 126);
+  --poe-color-premiumchatoutline: rgb(209, 46, 46);
+  --poe-color-uniquefoil: rgb(130, 173, 106);
+  --poe-color-legacy: rgb(212, 145, 63);
+  --poe-color-bestiarymod: rgb(255, 255, 255);
+  --poe-color-bestiarymodoutline: rgb(219, 34, 0); /* 220,255,40,0 */
+  --poe-color-blightmod: rgb(255, 255, 255);
+  --poe-color-blightmodoutline: rgb(215, 0, 0); /* 255,215,0,0 */
+  --poe-color-afflictionmod: rgb(22, 25, 28);
+  --poe-color-afflictionmodoutline: rgb(151, 164, 181); /* 200,193,210,232 */
+  --poe-color-stackitemlevel: rgb(255, 255, 255);
+  --poe-color-harvestprimary: rgb(100, 111, 73);
+  --poe-color-harvestsecondary: rgb(83, 130, 161);
+  --poe-color-craftingcaster: rgb(179, 248, 254);
+  --poe-color-craftingphysical: rgb(199, 157, 147);
+  --poe-color-craftingfire: rgb(255, 154, 119);
+  --poe-color-craftingcold: rgb(147, 216, 255);
+  --poe-color-craftinglightning: rgb(248, 203, 118);
+  --poe-color-craftingchaos: rgb(216, 167, 211);
+  --poe-color-craftingspeed: rgb(207, 238, 165);
+  --poe-color-craftingcrit: rgb(178, 167, 214);
+  --poe-color-craftingred: rgb(200, 103, 110);
+  --poe-color-craftingblue: rgb(162, 207, 251);
+  --poe-color-craftinggreen: rgb(134, 189, 163);
+  --poe-color-craftinglife: rgb(201, 110, 110);
+  --poe-color-craftingdefences: rgb(168, 143, 103);
+  --poe-color-craftingattack: rgb(218, 129, 77);
+}
+
+/* ===== Flex grid ===== */
+.o-flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  clear: both;
+  margin-left: -16px;
+}
+.o-flex-grid__item {
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 0 0 auto;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  width: 100%;
+}
+.o-flex-grid__inner {
+  flex: 0 1 100%;
+  margin: 0 !important;
+}
+@media screen and (min-width: 45em) {
+  .o-flex-grid--c2\@sm > .o-flex-grid__item {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 60em) {
+  .o-flex-grid--c2\@md > .o-flex-grid__item {
+    width: 50%;
+  }
+  .o-flex-grid--c3\@md > .o-flex-grid__item {
+    width: 33.3%;
+  }
+  .o-flex-grid--c4\@md > .o-flex-grid__item {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 80em) {
+  .o-flex-grid--c3\@lg > .o-flex-grid__item {
+    width: 33.3%;
+  }
+}
+@media screen and (min-width: 100em) {
+  .o-flex-grid--c2\@lg > .o-flex-grid__item {
+    width: 50%;
+  }
+  .o-flex-grid--c4\@lg > .o-flex-grid__item {
+    width: 25%;
+  }
+}
+
+/* ===== Content blocks ===== */
+.c-cblock {
+  overflow: hidden;
+  margin: 6px 0;
+  border: 1px solid #2c2b2b;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-color: #141414;
+}
+.c-cblock--violet {
+  border-color: #585477;
+  background-color: #151517;
+}
+.c-cblock--gold {
+  border-color: #75693c;
+  background-color: #1c1b19;
+}
+.c-cblock > *:first-child {
+  margin-top: 0 !important;
+}
+.c-cblock hr {
+  clear: both;
+  margin: 16px 0;
+  background-color: #2c2b2b !important;
+}
+.c-cblock--violet hr {
+  background-color: #585477 !important;
+}
+.c-cblock--gold hr {
+  background-color: #75693c !important;
+}
+.c-cblock h2,
+.c-cblock h3,
+.c-cblock h4,
+.c-cblock h5,
+.c-cblock h6 {
+  border: none;
+}
+
+/* ===== Hoverbox (used by Template:Tooltip and Template:Item link) ===== */
+.hoverbox {
+  display: inline-block;
+}
+.hoverbox__display {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  padding: 8px;
+  transition: opacity 0.25s;
+}
+.hoverbox__display.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.hoverbox__activator {
+  display: flex;
+  align-items: baseline;
+}
+.hoverbox-display-container {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+}
+
+/* ===== Tooltip hoverbox (Template:Tooltip) ===== */
+.c-tooltip__activator {
+  position: relative;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: initial;
+  cursor: help;
+}
+.c-tooltip__display {
+  box-sizing: border-box;
+  border: 1px solid #7f7f7f;
+  padding: 0.5em 1.5em;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: normal;
+  color: #7f7f7f;
+  background-color: #000;
+}
+
+/* ===== Succession box (used by Template:Version) ===== */
+table.successionbox {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ===== Hatnote (Template:Hatnote) ===== */
+.hatnote {
+  display: flex;
+  margin-bottom: 0.4em;
+}
+.hatnote__icon {
+  padding-right: 0.4em;
+  width: 1.6em;
+}
+.hatnote__icon img {
+  width: 100%;
+  height: auto;
+}
+.hatnote__text {
+  font-style: italic;
+}
+.hatnote__text i {
+  font-style: normal;
+}
+
+/* ===== Message box (Template:Mbox) ===== */
+.mbox {
+  display: table;
+  background-color: #332f24;
+  border-color: #474233 #403b2e #26231b;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 2px 1px;
+  margin: 6px 10%;
+  padding: 2px;
+}
+.mbox-small {
+  clear: right;
+  float: right;
+  font-size: 88%;
+  line-height: 1.2;
+  margin: 6px 0 6px 12px;
+  width: 230px;
+}
+.mbox-small-left {
+  clear: left;
+  float: left;
+  font-size: 88%;
+  line-height: 1.2;
+  margin: 6px 12px 6px 0;
+  width: 230px;
+}
+.mbox-inner {
+  display: table-row;
+}
+.mbox-image,
+.mbox-text {
+  display: table-cell;
+  border-color: #1a1712;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  padding: 4px 1em;
+  vertical-align: middle;
+}
+.mbox-image {
+  border-right-width: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.mbox-text {
+  width: 100%;
+}
+.mbox-image + .mbox-text {
+  border-left-width: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 0;
+}
+.mbox-style .mbox-image,
+.mbox-style .mbox-text {
+  border-color: #a98a35;
+}
+.mbox-content .mbox-image,
+.mbox-content .mbox-text {
+  border-color: #a96427;
+}
+.mbox-delete .mbox-image,
+.mbox-delete .mbox-text {
+  border-color: #c62525;
+}
+
+/* ===== Fmbox (Template:Fmbox) ===== */
+.fmbox {
+  clear: both;
+  margin: 6px 0;
+  border: 1px solid #383636;
+  padding: 6px 1em;
+  background-color: #1a1b18;
+}
+
+/* ===== Infocard (Template:Infocard) ==== */
+.infocard {
+  float: right;
+  clear: right;
+  margin-left: 14px;
+  margin-bottom: 14px;
+  border-style: solid;
+  border-width: 2px 1px;
+  border-color: #474233 #403b2e #1a1812;
+  border-radius: 6px;
+  padding: 2px 3px;
+  width: 292px;
+  text-align: center;
+  background-color: #332f24;
+}
+.infocard > .topbar {
+  margin-bottom: 2px;
+  display: table;
+  width: 100%;
+}
+.infocard > .topbar > .left,
+.infocard > .topbar > .middle,
+.infocard > .topbar > .right {
+  display: table-cell;
+  vertical-align: middle;
+}
+.infocard > .topbar > .middle > .header {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #dfcf99;
+}
+.infocard > .topbar > .middle > .subheader {
+  padding-bottom: 8px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: bold;
+}
+.infocard > .inner {
+  margin: 0;
+  border-style: solid;
+  border-width: 2px 1px;
+  border-color: #1a1812 #1f1c15 #474233;
+  border-radius: 6px;
+  background-color: #26231b;
+}
+.infocard > .inner > .block {
+  margin: 0;
+  padding: 0.5em 1em;
+  list-style: none;
+}
+.infocard > .inner > .block:first-child {
+  padding-top: 1em;
+}
+.infocard > .inner > .block:last-child {
+  padding-bottom: 1em;
+}
+
+/* ===== Disambiguation (Template:Disambiguation) ===== */
+.dmbox {
+  display: flex;
+  align-items: center;
+  clear: both;
+  margin: 1em;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #474233;
+  padding: 0.4em;
+}
+.dmbox-image {
+  margin-right: 0.4em;
+}
+
+/* ===== Discussion Closed (Template:Discussion top) ===== */
+.dcbox {
+  margin: 6px 0;
+  border: 1px solid #2c2b2b;
+  border-radius: 4px;
+  padding: 6px 1em;
+  background-color: #141414;
+}
+.dcbox-top {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #383636;
+  padding-bottom: 4px;
+}
+.dcbox-status {
+  font-size: 110%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.dcbox-reminder {
+  font-size: 90%;
+  font-style: italic;
+  color: #5e4f45;
+}
+.dcbox-bottom {
+  margin-top: 12px;
+  border-top: 1px solid #383636;
+  padding-top: 4px;
+}
+
+/* ===== Issue Box (Template:Issue top) ===== */
+.dcbox.issue-resolved {
+  border-color: #678236;
+  background-color: #1b1c19;
+}
+.dcbox.issue-moved {
+  border-color: #585477;
+  background-color: #151517;
+}
+
+/* ===== Blockquote (Template:Blockquote top) ===== */
+.bqbox {
+  margin: 6px 1em;
+  border: 1px solid #293137;
+  border-radius: 4px;
+  padding: 6px 1em;
+  background-color: #141517;
+}
+
+/* ===== Pull quote (Template:Pullquote) ===== */
+.pull-quote {
+  display: table;
+  margin: 1em auto;
+  min-width: 25%;
+}
+.pull-quote > .quotation {
+  margin: 0 auto;
+  font-size: 1.15em;
+  font-style: italic;
+  color: #736551;
+}
+.pull-quote > .citation {
+  margin: 0 auto;
+  text-align: right;
+  font-size: 0.85em;
+  font-style: normal;
+}
+.pull-quote.-aligncenter > .quotation,
+.pull-quote.-aligncenter > .citation {
+  text-align: center;
+}
+.pull-quote > .citation > cite {
+  font-style: inherit;
+}
+.pull-quote > .citation::before {
+  content: "— ";
+}
+@media all and (min-width: 50em) {
+  .pull-quote.-aligncenter > .quotation,
+  .pull-quote.-aligncenter > .citation {
+    width: 75%;
+  }
+  .pull-quote.-alignleft {
+    float: left;
+    margin: 0 1.75em 1em 0;
+    border-right: 3px solid #51453d;
+    padding-right: 0.75em;
+  }
+  .pull-quote.-alignright {
+    float: right;
+    margin: 0 0 1em 1.75em;
+    border-left: 3px solid #51453d;
+    padding-left: 0.75em;
+  }
+  .pull-quote.-alignleft,
+  .pull-quote.-alignright {
+    width: 33.3%;
+  }
+}
+@media all and (min-width: 73em) {
+  .pull-quote.-alignnone > .quotation,
+  .pull-quote.-alignnone > .citation {
+    width: 80%;
+  }
+  .pull-quote.-aligncenter > .quotation,
+  .pull-quote.-aligncenter > .citation {
+    width: 50%;
+  }
+  .pull-quote.-alignleft,
+  .pull-quote.-alignright {
+    width: 25%;
+  }
+}
+
+/* ===== Documentation (Template:Documentation) ===== */
+.template-documentation {
+  clear: both;
+  margin: 14px 0 0;
+  border: 1px solid #383636;
+  padding: 1em;
+  background-color: #1a1b18;
+}
+.template-documentation__start {
+  margin-bottom: 0.9em;
+  border-bottom: 1px solid #383636;
+  padding-bottom: 3px;
+}
+.template-documentation__heading {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.template-documentation__end {
+  margin: 7px 0;
+  border: 1px solid #383636;
+  padding: 1em;
+  font-style: italic;
+  background-color: #1a1b18;
+}
+.template-documentation__toolbar {
+  font-size: 0.8em;
+  font-style: normal;
+}
+
+/* ===== References (Template:Reflist) ===== */
+ol.references,
+div.reflist,
+div.refbegin {
+  font-size: 90%;
+  margin-bottom: 0.5em;
+}
+div.refbegin-100 {
+  font-size: 100%;
+}
+div.reflist ol.references {
+  font-size: 100%;
+  list-style-type: inherit;
+}
+ol.references li:target,
+sup.reference:target,
+span.citation:target {
+  background-color: rgba(0, 182, 255, 0.1);
+  border: 1px dotted #00b6ff;
+  border-radius: 4px;
+}
+sup.reference {
+  font-style: normal;
+  font-weight: normal;
+}
+span.brokenref {
+  display: none;
+}
+.citation {
+  word-wrap: break-word;
+}
+.citation .printonly {
+  display: none;
+}
+
+/* ===== Semantic text formatting, aka "text colors" (Template:C) ===== */
+.text-color,
+.tc {
+  font-style: normal;
+}
+.text-color a,
+.tc a {
+  color: inherit !important;
+}
+.text-color abbr,
+.tc abbr {
+  color: inherit;
+}
+em.tc {
+  font-style: normal;
+}
+em.tc.-i {
+  font-style: italic;
+}
+.text-color.-mod,
+.tc.-mod {
+  font-family: "Fontin-SmallCaps", Verdana, Arial, Helvetica, sans-serif;
+  font-variant-ligatures: none;
+  color: var(--poe-color-augmented);
+}
+.text-color.-default,
+.tc.-default,
+.text-color.-stat,
+.tc.-stat {
+  color: var(--poe-color-default);
+}
+.text-color.-valuedefault,
+.tc.-valuedefault,
+.text-color.-value,
+.tc.-value {
+  color: var(--poe-color-valuedefault);
+}
+.text-color.-pink,
+.tc.-pink {
+  color: var(--poe-color-pink);
+}
+.text-color.-dodgerblue,
+.tc.-dodgerblue {
+  color: var(--poe-color-dodgerblue);
+}
+.text-color.-fire,
+.tc.-fire {
+  color: var(--poe-color-fire);
+}
+.text-color.-cold,
+.tc.-cold {
+  color: var(--poe-color-cold);
+}
+.text-color.-lightning,
+.tc.-lightning {
+  color: var(--poe-color-lightning);
+}
+.text-color.-chaos,
+.tc.-chaos {
+  color: var(--poe-color-chaos);
+}
+.text-color.-augmented,
+.tc.-augmented {
+  color: var(--poe-color-augmented);
+}
+.text-color.-crafted,
+.tc.-crafted,
+.text-color.-craft,
+.tc.-craft {
+  color: var(--poe-color-crafted);
+}
+.text-color.-fractured,
+.tc.-fractured {
+  color: var(--poe-color-fractured);
+}
+.text-color.-enchanted,
+.tc.-enchanted {
+  color: var(--poe-color-enchanted);
+}
+.text-color.-unmet,
+.tc.-unmet {
+  color: var(--poe-color-unmet);
+}
+.text-color.-uniqueitem,
+.tc.-uniqueitem {
+  color: var(--poe-color-uniqueitem);
+}
+.text-color.-unique,
+.tc.-unique {
+  color: var(--poe-color-unique);
+}
+.text-color.-rareitem,
+.tc.-rareitem {
+  color: var(--poe-color-rareitem);
+}
+.text-color.-rare,
+.tc.-rare {
+  color: var(--poe-color-rare);
+}
+.text-color.-magicitem,
+.tc.-magicitem {
+  color: var(--poe-color-magicitem);
+}
+.text-color.-magic,
+.tc.-magic {
+  color: var(--poe-color-magic);
+}
+.text-color.-whiteitem,
+.tc.-whiteitem,
+.text-color.-white,
+.tc.-white {
+  color: var(--poe-color-whiteitem);
+}
+.text-color.-normal,
+.tc.-normal {
+  color: var(--poe-color-normal);
+}
+.text-color.-gemitem,
+.tc.-gemitem {
+  color: var(--poe-color-gemitem);
+}
+.text-color.-gem,
+.tc.-gem,
+.text-color.-gemdesc,
+.tc.-gemdesc {
+  color: var(--poe-color-gem);
+}
+.text-color.-currencyitem,
+.tc.-currencyitem {
+  color: var(--poe-color-currencyitem);
+}
+.text-color.-currency,
+.tc.-currency,
+.text-color.-cosmetic,
+.tc.-cosmetic {
+  color: var(--poe-color-currency);
+}
+.text-color.-questitem,
+.tc.-questitem {
+  color: var(--poe-color-questitem);
+}
+.text-color.-quest,
+.tc.-quest {
+  color: var(--poe-color-quest);
+}
+.text-color.-nemesismod,
+.tc.-nemesismod,
+.text-color.-nemesis,
+.tc.-nemesis {
+  font-weight: bold;
+  color: var(--poe-color-nemesismod);
+  text-shadow: -1px -1px 0 var(--poe-color-nemesismodoutline),
+    1px -1px 0 var(--poe-color-nemesismodoutline),
+    -1px 1px 0 var(--poe-color-nemesismodoutline),
+    1px 1px 0 var(--poe-color-nemesismodoutline);
+}
+.text-color.-talismanmod,
+.tc.-talismanmod {
+  font-weight: bold;
+  color: var(--poe-color-talismanmod);
+  text-shadow: -1px -1px 0 var(--poe-color-talismanmodoutline),
+    1px -1px 0 var(--poe-color-talismanmodoutline),
+    -1px 1px 0 var(--poe-color-talismanmodoutline),
+    1px 1px 0 var(--poe-color-talismanmodoutline);
+}
+.text-color.-title,
+.tc.-title {
+  color: var(--poe-color-title);
+}
+.text-color.-corrupted,
+.tc.-corrupted {
+  color: var(--poe-color-corrupted);
+}
+.text-color.-favour,
+.tc.-favour {
+  color: var(--poe-color-favour);
+}
+.text-color.-supporterpacknewitem,
+.tc.-supporterpacknewitem {
+  color: var(--poe-color-supporterpacknewitem);
+}
+.text-color.-supporterpackitem,
+.tc.-supporterpackitem {
+  color: var(--poe-color-supporterpackitem);
+}
+.text-color.-bloodlinemod,
+.tc.-bloodlinemod,
+.text-color.-bloodline,
+.tc.-bloodline {
+  font-weight: bold;
+  color: var(--poe-color-bloodlinemod);
+  text-shadow: -1px -1px 0 var(--poe-color-bloodlinemodoutline),
+    1px -1px 0 var(--poe-color-bloodlinemodoutline),
+    -1px 1px 0 var(--poe-color-bloodlinemodoutline),
+    1px 1px 0 var(--poe-color-bloodlinemodoutline);
+}
+.text-color.-tormentmod,
+.tc.-tormentmod,
+.text-color.-torment,
+.tc.-torment {
+  font-weight: bold;
+  color: var(--poe-color-tormentmod);
+  text-shadow: -1px -1px 0 var(--poe-color-tormentmodoutline),
+    1px -1px 0 var(--poe-color-tormentmodoutline),
+    -1px 1px 0 var(--poe-color-tormentmodoutline),
+    1px 1px 0 var(--poe-color-tormentmodoutline);
+}
+.text-color.-canttradeormodify,
+.tc.-canttradeormodify {
+  color: var(--poe-color-canttradeormodify);
+}
+.text-color.-lockedtoaccount,
+.tc.-lockedtoaccount {
+  color: var(--poe-color-lockedtoaccount);
+}
+.text-color.-divination,
+.tc.-divination,
+.text-color.-card,
+.tc.-card {
+  color: var(--poe-color-divination);
+}
+.text-color.-prophecy,
+.tc.-prophecy {
+  color: var(--poe-color-prophecy);
+}
+.text-color.-essencemod,
+.tc.-essencemod,
+.text-color.-essence,
+.tc.-essence {
+  font-weight: bold;
+  color: var(--poe-color-essencemod);
+  text-shadow: -1px -1px 0 var(--poe-color-essencemodoutline),
+    1px -1px 0 var(--poe-color-essencemodoutline),
+    -1px 1px 0 var(--poe-color-essencemodoutline),
+    1px 1px 0 var(--poe-color-essencemodoutline);
+}
+.text-color.-premiumchat,
+.tc.-premiumchat {
+  font-weight: bold;
+  color: var(--poe-color-premiumchat);
+  text-shadow: -1px -1px 0 var(--poe-color-premiumchatoutline),
+    1px -1px 0 var(--poe-color-premiumchatoutline),
+    -1px 1px 0 var(--poe-color-premiumchatoutline),
+    1px 1px 0 var(--poe-color-premiumchatoutline);
+}
+.text-color.-uniquefoil,
+.tc.-uniquefoil,
+.text-color.-relic,
+.tc.-relic {
+  color: var(--poe-color-uniquefoil);
+}
+.text-color.-legacy,
+.tc.-legacy {
+  color: var(--poe-color-legacy);
+}
+.text-color.-bestiarymod,
+.tc.-bestiarymod,
+.text-color.-bestiary,
+.tc.-bestiary {
+  font-weight: bold;
+  color: var(--poe-color-bestiarymod);
+  text-shadow: -1px -1px 0 var(--poe-color-bestiarymodoutline),
+    1px -1px 0 var(--poe-color-bestiarymodoutline),
+    -1px 1px 0 var(--poe-color-bestiarymodoutline),
+    1px 1px 0 var(--poe-color-bestiarymodoutline);
+}
+.text-color.-blightmod,
+.tc.-blightmod,
+.text-color.-blight,
+.tc.-blight {
+  font-weight: bold;
+  color: var(--poe-color-blightmod);
+  text-shadow: -1px -1px 0 var(--poe-color-blightmodoutline),
+    1px -1px 0 var(--poe-color-blightmodoutline),
+    -1px 1px 0 var(--poe-color-blightmodoutline),
+    1px 1px 0 var(--poe-color-blightmodoutline);
+}
+.text-color.-afflictionmod,
+.tc.-afflictionmod,
+.text-color.-deliriummod,
+.tc.-deliriummod,
+.text-color.-delirium,
+.tc.-delirium {
+  font-weight: bold;
+  color: var(--poe-color-afflictionmod);
+  text-shadow: -1px -1px 0 var(--poe-color-afflictionmodoutline),
+    1px -1px 0 var(--poe-color-afflictionmodoutline),
+    -1px 1px 0 var(--poe-color-afflictionmodoutline),
+    1px 1px 0 var(--poe-color-afflictionmodoutline);
+}
+.text-color.-stackitemlevel,
+.tc.-stackitemlevel {
+  color: var(--poe-color-stackitemlevel);
+}
+.text-color.-harvestprimary,
+.tc.-harvestprimary {
+  color: var(--poe-color-harvestprimary);
+}
+.text-color.-harvestsecondary,
+.tc.-harvestsecondary {
+  color: var(--poe-color-harvestsecondary);
+}
+.text-color.-craftingcaster,
+.tc.-craftingcaster {
+  color: var(--poe-color-craftingcaster);
+}
+.text-color.-craftingphysical,
+.tc.-craftingphysical {
+  color: var(--poe-color-craftingphysical);
+}
+.text-color.-craftingfire,
+.tc.-craftingfire {
+  color: var(--poe-color-craftingfire);
+}
+.text-color.-craftingcold,
+.tc.-craftingcold {
+  color: var(--poe-color-craftingcold);
+}
+.text-color.-craftinglightning,
+.tc.-craftinglightning {
+  color: var(--poe-color-craftinglightning);
+}
+.text-color.-craftingchaos,
+.tc.-craftingchaos {
+  color: var(--poe-color-craftingchaos);
+}
+.text-color.-craftingspeed,
+.tc.-craftingspeed {
+  color: var(--poe-color-craftingspeed);
+}
+.text-color.-craftingcrit,
+.tc.-craftingcrit {
+  color: var(--poe-color-craftingcrit);
+}
+.text-color.-craftingred,
+.tc.-craftingred {
+  color: var(--poe-color-craftingred);
+}
+.text-color.-craftingblue,
+.tc.-craftingblue {
+  color: var(--poe-color-craftingblue);
+}
+.text-color.-craftinggreen,
+.tc.-craftinggreen {
+  color: var(--poe-color-craftinggreen);
+}
+.text-color.-craftinglife,
+.tc.-craftinglife {
+  color: var(--poe-color-craftinglife);
+}
+.text-color.-craftingdefences,
+.tc.-craftingdefences {
+  color: var(--poe-color-craftingdefences);
+}
+.text-color.-craftingattack,
+.tc.-craftingattack {
+  color: var(--poe-color-craftingattack);
+}
+.text-color.-help,
+.tc.-help {
+  font-style: italic;
+  color: var(--poe-color-default);
+}
+.text-color.-flavour,
+.tc.-flavour {
+  font-style: italic;
+  color: var(--poe-color-unique);
+}
+.text-color.-primal,
+.tc.-primal {
+  color: cyan;
+}
+.text-color.-vivid,
+.tc.-vivid {
+  color: yellow;
+}
+.text-color.-wild,
+.tc.-wild {
+  color: magenta;
+}
+
+/* ===== Veiled modifiers (Template:Veiled modifier) ===== */
+.veiled {
+  display: inline-block;
+  white-space: nowrap;
+  color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.veiled.-prefix {
+  width: 158px;
+}
+.veiled.-prefix.-m01 {
+  background-image: url("https://www.poewiki.net/w/images/b/b3/Veiled_prefix_01.gif");
+}
+.veiled.-prefix.-m02 {
+  background-image: url("https://www.poewiki.net/w/images/2/29/Veiled_prefix_02.gif");
+}
+.veiled.-prefix.-m03 {
+  background-image: url("https://www.poewiki.net/w/images/5/58/Veiled_prefix_03.gif");
+}
+.veiled.-prefix.-m04 {
+  background-image: url("https://www.poewiki.net/w/images/d/dd/Veiled_prefix_04.gif");
+}
+.veiled.-prefix.-m05 {
+  background-image: url("https://www.poewiki.net/w/images/c/c7/Veiled_prefix_05.gif");
+}
+.veiled.-prefix.-m06 {
+  background-image: url("https://www.poewiki.net/w/images/8/8c/Veiled_prefix_06.gif");
+}
+.veiled.-suffix {
+  width: 85px;
+}
+.veiled.-suffix.-m01 {
+  background-image: url("https://www.poewiki.net/w/images/0/0a/Veiled_suffix_01.gif");
+}
+.veiled.-suffix.-m02 {
+  background-image: url("https://www.poewiki.net/w/images/4/44/Veiled_suffix_02.gif");
+}
+.veiled.-suffix.-m03 {
+  background-image: url("https://www.poewiki.net/w/images/3/31/Veiled_suffix_03.gif");
+}
+.veiled.-suffix.-m04 {
+  background-image: url("https://www.poewiki.net/w/images/7/7a/Veiled_suffix_04.gif");
+}
+.veiled.-suffix.-m05 {
+  background-image: url("https://www.poewiki.net/w/images/9/95/Veiled_suffix_05.gif");
+}
+.veiled.-suffix.-m06 {
+  background-image: url("https://www.poewiki.net/w/images/0/0e/Veiled_suffix_06.gif");
+}
+
+/* ===== Harbinger glyphs (Template:Glyph) ===== */
+.glyph {
+  display: inline-block;
+  width: 2em;
+  height: 1.5577em;
+  vertical-align: middle;
+  background: url("https://www.poewiki.net/w/images/4/41/Harbinger-glyphs.png");
+  background-repeat: no-repeat;
+  background-size: 12em auto;
+  background-position: 2em;
+}
+.glyph.HBGAa {
+  background-position: calc(-2em * 0) calc(-1.5577em * 0);
+}
+.glyph.HBGAb {
+  background-position: calc(-2em * 1) calc(-1.5577em * 0);
+}
+.glyph.HBGAc {
+  background-position: calc(-2em * 2) calc(-1.5577em * 0);
+}
+.glyph.HBGAd {
+  background-position: calc(-2em * 3) calc(-1.5577em * 0);
+}
+.glyph.HBGAe {
+  background-position: calc(-2em * 4) calc(-1.5577em * 0);
+}
+.glyph.HBGAf {
+  background-position: calc(-2em * 5) calc(-1.5577em * 0);
+}
+.glyph.HBGAg {
+  background-position: calc(-2em * 0) calc(-1.5577em * 1);
+}
+.glyph.HBGAh {
+  background-position: calc(-2em * 1) calc(-1.5577em * 1);
+}
+.glyph.HBGAi {
+  background-position: calc(-2em * 2) calc(-1.5577em * 1);
+}
+.glyph.HBGAj {
+  background-position: calc(-2em * 3) calc(-1.5577em * 1);
+}
+.glyph.HBGAk {
+  background-position: calc(-2em * 4) calc(-1.5577em * 1);
+}
+.glyph.HBGAl {
+  background-position: calc(-2em * 5) calc(-1.5577em * 1);
+}
+.glyph.HBGAm {
+  background-position: calc(-2em * 0) calc(-1.5577em * 2);
+}
+.glyph.HBGAn {
+  background-position: calc(-2em * 1) calc(-1.5577em * 2);
+}
+.glyph.HBGAo {
+  background-position: calc(-2em * 2) calc(-1.5577em * 2);
+}
+.glyph.HBGAp {
+  background-position: calc(-2em * 3) calc(-1.5577em * 2);
+}
+.glyph.HBGAq {
+  background-position: calc(-2em * 4) calc(-1.5577em * 2);
+}
+.glyph.HBGAr {
+  background-position: calc(-2em * 5) calc(-1.5577em * 2);
+}
+.glyph.HBGAs {
+  background-position: calc(-2em * 0) calc(-1.5577em * 3);
+}
+.glyph.HBGAt {
+  background-position: calc(-2em * 1) calc(-1.5577em * 3);
+}
+.glyph.HBGAu {
+  background-position: calc(-2em * 2) calc(-1.5577em * 3);
+}
+.glyph.HBGAv {
+  background-position: calc(-2em * 3) calc(-1.5577em * 3);
+}
+.glyph.HBGAw {
+  background-position: calc(-2em * 4) calc(-1.5577em * 3);
+}
+.glyph.HBGAx {
+  background-position: calc(-2em * 5) calc(-1.5577em * 3);
+}
+.glyph.HBGAy {
+  background-position: calc(-2em * 0) calc(-1.5577em * 4);
+}
+.glyph.HBGAz {
+  background-position: calc(-2em * 1) calc(-1.5577em * 4);
+}
+.glyph.HBGBa {
+  background-position: calc(-2em * 2) calc(-1.5577em * 4);
+}
+.glyph.HBGBb {
+  background-position: calc(-2em * 3) calc(-1.5577em * 4);
+}
+.glyph.HBGBc {
+  background-position: calc(-2em * 4) calc(-1.5577em * 4);
+}
+.glyph.HBGBd {
+  background-position: calc(-2em * 5) calc(-1.5577em * 4);
+}
+.glyph.HBGBe {
+  background-position: calc(-2em * 0) calc(-1.5577em * 5);
+}
+.glyph.HBG00 {
+  width: 0.7692em;
+  background-position: -2em calc(-1.5577em * 5);
+}
+.glyph.HBG01 {
+  width: 0.8077em;
+  background-position: -2.7692em calc(-1.5577em * 5);
+}
+.glyph.HBG02 {
+  width: 0.9808em;
+  background-position: -3.5769em calc(-1.5577em * 5);
+}
+.glyph.HBG03 {
+  width: 0.8654em;
+  background-position: -4.5577em calc(-1.5577em * 5);
+}
+.glyph.HBG04 {
+  width: 1.0769em;
+  background-position: -5.4231em calc(-1.5577em * 5);
+}
+.glyph.hbgi00 {
+  width: 0.8462em;
+  background-position: -6.5em calc(-1.5577em * 5);
+}
+.glyph.hbgi04 {
+  background-position: calc(-2em * 4) calc(-1.5577em * 5);
+}
+.glyph.HBGC00 {
+  background-position: calc(-2em * 0) calc(-1.5577em * 6);
+}
+.glyph.HBGC01 {
+  background-position: calc(-2em * 1) calc(-1.5577em * 6);
+}
+.glyph.HBGC02 {
+  background-position: calc(-2em * 2) calc(-1.5577em * 6);
+}
+.glyph.HBGC03 {
+  background-position: calc(-2em * 3) calc(-1.5577em * 6);
+}
+.glyph.HBGC04 {
+  background-position: calc(-2em * 4) calc(-1.5577em * 6);
+}
+.glyph.HBGC05 {
+  background-position: calc(-2em * 5) calc(-1.5577em * 6);
+}
+.glyph.HBGC06 {
+  background-position: calc(-2em * 0) calc(-1.5577em * 7);
+}
+.glyph.HBGC07 {
+  background-position: calc(-2em * 1) calc(-1.5577em * 7);
+}
+.glyph.HBGC08 {
+  background-position: calc(-2em * 2) calc(-1.5577em * 7);
+}
+.glyph.HBGC09 {
+  background-position: calc(-2em * 3) calc(-1.5577em * 7);
+}
+.glyph.HBGC010 {
+  background-position: calc(-2em * 4) calc(-1.5577em * 7);
+}
+.glyph.HBGC011 {
+  background-position: calc(-2em * 5) calc(-1.5577em * 7);
+}
+
+/* ===== Item box (Template:Item) ===== */
+.item-box {
+  display: inline-block;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  padding: 2px;
+  min-width: 220px;
+  max-width: 440px;
+  text-align: center;
+  font-family: "Fontin-SmallCaps", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  font-variant-ligatures: none;
+  color: var(--poe-color-default);
+  background-color: #000;
+}
+.item-box a,
+.item-box a:visited,
+.item-box a:active {
+  color: unset;
+}
+.item-box.-normal {
+  border-color: var(--poe-color-normal);
+}
+.item-box.-magic {
+  border-color: var(--poe-color-magic);
+}
+.item-box.-rare {
+  border-color: var(--poe-color-rare);
+}
+.item-box.-unique {
+  border-color: var(--poe-color-unique);
+}
+.item-box.-currency {
+  border-color: var(--poe-color-currency);
+}
+.item-box.-gem {
+  border-color: var(--poe-color-gem);
+}
+.item-box.-quest {
+  border-color: var(--poe-color-quest);
+}
+.item-box.-prophecy {
+  border-color: var(--poe-color-prophecy);
+}
+.item-box.-relic {
+  border-color: var(--poe-color-uniquefoil);
+}
+.item-box > .header {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 20px;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+}
+.item-box > .header > .symbol {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.item-box > .header > .symbol:first-child {
+  left: 0;
+}
+.item-box > .header > .symbol:last-child {
+  right: 0;
+}
+.item-box > .header > .symbol.-shaper {
+  background-image: url("https://www.poewiki.net/w/images/5/55/Shaper-item-symbol.png");
+}
+.item-box > .header > .symbol.-elder {
+  background-image: url("https://www.poewiki.net/w/images/1/1b/Elder-item-symbol.png");
+}
+.item-box > .header > .symbol.-crusader {
+  background-image: url("https://www.poewiki.net/w/images/d/d1/Crusader-item-symbol.png");
+}
+.item-box > .header > .symbol.-redeemer {
+  background-image: url("https://www.poewiki.net/w/images/9/9c/Redeemer-item-symbol.png");
+}
+.item-box > .header > .symbol.-hunter {
+  background-image: url("https://www.poewiki.net/w/images/a/a8/Hunter-item-symbol.png");
+}
+.item-box > .header > .symbol.-warlord {
+  background-image: url("https://www.poewiki.net/w/images/f/f1/Warlord-item-symbol.png");
+}
+.item-box > .header > .symbol.-veiled {
+  background-image: url("https://www.poewiki.net/w/images/f/fd/Veiled-item-symbol.png");
+}
+.item-box > .header > .symbol.-fractured {
+  background-image: url("https://www.poewiki.net/w/images/9/97/Fractured-item-symbol.png");
+}
+.item-box > .header > .symbol.-synthesised {
+  background-image: url("https://www.poewiki.net/w/images/4/4c/Synthesised-item-symbol.png");
+}
+.item-box > .header > .symbol.-replica {
+  background-image: url("https://www.poewiki.net/w/images/5/50/Replica-item-symbol.png");
+}
+.item-box.-normal > .header {
+  color: var(--poe-color-normal);
+}
+.item-box.-magic > .header {
+  color: var(--poe-color-magic);
+}
+.item-box.-rare > .header {
+  color: var(--poe-color-rare);
+}
+.item-box.-unique > .header {
+  color: var(--poe-color-unique);
+}
+.item-box.-currency > .header {
+  color: var(--poe-color-currency);
+}
+.item-box.-gem > .header {
+  color: var(--poe-color-gem);
+}
+.item-box.-quest > .header {
+  color: var(--poe-color-quest);
+}
+.item-box.-prophecy > .header {
+  color: var(--poe-color-prophecy);
+}
+.item-box.-relic > .header {
+  color: var(--poe-color-uniquefoil);
+}
+.item-box > .header.-single {
+  background-image: url("https://www.poewiki.net/w/images/9/9b/Item-ui-header-single.png"),
+    url("https://www.poewiki.net/w/images/9/9b/Item-ui-header-single.png"),
+    url("https://www.poewiki.net/w/images/9/9b/Item-ui-header-single.png");
+}
+.item-box > .header.-single {
+  padding: 3px 32px;
+  height: 28px;
+  line-height: 25px;
+}
+.item-box > .header.-single > .symbol {
+  width: 32px;
+  height: 34px;
+}
+.item-box.-normal > .header.-single {
+  background-position: left 0, right -68px, center -34px;
+}
+.item-box.-magic > .header.-single {
+  background-position: left -102px, right -170px, center -136px;
+}
+.item-box.-currency > .header.-single {
+  background-position: left -204px, right -272px, center -238px;
+}
+.item-box.-gem > .header.-single {
+  background-position: left -306px, right -374px, center -340px;
+}
+.item-box.-quest > .header.-single {
+  background-position: left -408px, right -476px, center -442px;
+}
+.item-box.-prophecy > .header.-single {
+  background-position: left -510px, right -578px, center -544px;
+}
+.item-box > .header.-double {
+  background-image: url("https://www.poewiki.net/w/images/e/e8/Item-ui-header-double.png"),
+    url("https://www.poewiki.net/w/images/e/e8/Item-ui-header-double.png"),
+    url("https://www.poewiki.net/w/images/e/e8/Item-ui-header-double.png");
+}
+.item-box > .header.-double {
+  padding: 3px 44px;
+  height: 48px;
+  line-height: 22px;
+}
+.item-box > .header.-double > .symbol {
+  width: 32px;
+  height: 54px;
+}
+.item-box.-rare > .header.-double {
+  background-position: left 0, right -108px, center -54px;
+}
+.item-box.-unique > .header.-double {
+  background-position: left -162px, right -270px, center -216px;
+}
+.item-box.-relic > .header.-double {
+  background-image: url("https://www.poewiki.net/w/images/e/e1/Item-ui-header-relic.gif"),
+    url("https://www.poewiki.net/w/images/e/e1/Item-ui-header-relic.gif"),
+    url("https://www.poewiki.net/w/images/e/e1/Item-ui-header-relic.gif");
+}
+.item-box.-relic > .header.-double {
+  background-position: left 0, right -108px, center -54px;
+}
+.item-box > .header > a,
+.item-box > .header > .selflink {
+  font-weight: normal;
+  color: inherit !important;
+}
+.item-stats {
+  display: block;
+  padding: 7px 12px;
+  margin: 0 auto;
+}
+.item-stats.-nopad {
+  padding: 0;
+}
+.item-stats > .group {
+  display: block;
+  margin: 0 auto;
+}
+.item-stats > .group:nth-last-child(n + 2)::after,
+.item-stat-separator::before {
+  display: block;
+  margin: 5px auto;
+  width: 221px;
+  height: 2px;
+  background-image: url("https://www.poewiki.net/w/images/e/ef/Item-ui-separators.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  content: "";
+}
+.item-box.-magic > .item-stats > .group::after,
+.item-stat-separator.-magic::before {
+  background-position: 0 -2px;
+}
+.item-box.-rare > .item-stats > .group::after,
+.item-stat-separator.-rare::before {
+  background-position: 0 -4px;
+}
+.item-box.-unique > .item-stats > .group::after,
+.item-stat-separator.-unique::before {
+  background-position: 0 -6px;
+}
+.item-box.-currency > .item-stats > .group::after,
+.item-stat-separator.-currency::before {
+  background-position: 0 -8px;
+}
+.item-box.-gem > .item-stats > .group::after,
+.item-stat-separator.-gem::before {
+  background-position: 0 -10px;
+}
+.item-box.-quest > .item-stats > .group::after,
+.item-stat-separator.-quest::before {
+  background-position: 0 -12px;
+}
+.item-box.-prophecy > .item-stats > .group::after,
+.item-stat-separator.-prophecy::before {
+  background-position: 0 -14px;
+}
+.item-box.-relic > .item-stats > .group::after,
+.item-stat-separator.-relic::before {
+  background-position: 0 -16px;
+}
+.item-box > .image {
+  display: block;
+  padding: 7px 12px;
+}
+
+/* Quality selector */
+.quality-header {
+  display: flex;
+  justify-content: center;
+}
+.quality-header {
+  margin: 0 0.1em;
+}
+.quality-section-select {
+  margin: 0 0.1em;
+  color: white;
+  padding: 0 0.4em;
+  background-color: #333333;
+}
+.quality-section-select:hover {
+  background-color: #555555;
+}
+.quality-section-select.quality-selected {
+  font-weight: bold;
+  background-color: #555555;
+}
+.quality-section-select > span {
+  display: none;
+}
+.quality-section-select.quality-selected > span {
+  display: initial;
+  margin-left: 0.25em;
+  padding-left: 0.25em;
+  border-left: 2px solid white;
+}
+.quality-box.quality-selected {
+  display: initial;
+}
+.quality-box {
+  display: none;
+}
+
+/* Divination card item box */
+.item-box.-divicard {
+  border-color: var(--poe-color-divination);
+}
+.item-box.-divicard:first-child {
+  border: none;
+  padding: 0;
+  background: none;
+}
+.divicard-wrapper {
+  display: block;
+  position: relative;
+  width: 440px;
+  height: 668px;
+}
+.divicard-art {
+  display: block;
+  position: absolute;
+  top: 56px;
+  left: 26px;
+  background-color: #000;
+}
+.divicard-art img {
+  width: 390px;
+  height: 280px;
+}
+.divicard-frame {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.divicard-frame img {
+  width: 100%;
+  height: 100%;
+}
+.divicard-header {
+  display: block;
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 100%;
+  font-size: 20px;
+  line-height: 44px;
+  color: #030301;
+}
+.divicard-header a,
+.divicard-header .selflink {
+  font-weight: normal;
+}
+.divicard-stack {
+  display: block;
+  position: absolute;
+  top: 309px;
+  left: 42px;
+  width: 70px;
+  font-size: 16px;
+  line-height: 38px;
+  color: #fff;
+}
+.divicard-reward {
+  display: table;
+  position: absolute;
+  top: 334px;
+  left: 35px;
+  font-size: 16px;
+}
+.divicard-reward > span {
+  display: table-cell;
+  vertical-align: middle;
+  width: 374px;
+  height: 110px;
+}
+.divicard-flavour {
+  display: table;
+  position: absolute;
+  top: 452px;
+  left: 35px;
+  font-size: 16px;
+}
+.divicard-flavour > span {
+  display: table-cell;
+  vertical-align: middle;
+  width: 374px;
+  height: 184px;
+}
+
+/* for Module:Item (old item module) */
+.item-box.-floatright {
+  float: right;
+  clear: right;
+  margin-left: 14px;
+  margin-bottom: 14px;
+}
+.itemboxhover,
+.itemboxhovericon {
+  position: absolute;
+  z-index: 10000000; /* Needs to be on top always */
+}
+.itemboxhoverhide {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.itemboxhovernojs {
+  display: none !important;
+}
+.itemboxhover {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.itemboxhovericon {
+  display: block;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0) 70%,
+    rgba(0, 0, 0, 0) 100%
+  ); /* W3C */
+}
+.itemhover {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* for Module:Item2 */
+.inline-infobox-hover {
+  display: none;
+  position: absolute;
+  z-index: 10000000;
+}
+.inline-infobox-hover .item-box {
+  float: left;
+  display: inline-block;
+}
+.inline-infobox-hover .image {
+  padding: 7px 12px;
+}
+.inline-infobox-container > a:first-child > img {
+  height: 16px;
+  width: auto;
+}
+.inline-infobox-container > a:last-child > img {
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+.inline-infobox-container:hover > .inline-infobox-hover {
+  display: inline-block;
+  font-weight: normal;
+  font-style: normal;
+}
+.infobox-page-container {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  clear: right;
+  margin-left: 14px;
+}
+.infobox-page-container > .item-box {
+  margin-bottom: 1em;
+}
+.infobox-page-container em.header {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.3em;
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+.infobox-disabled-drop {
+  color: red;
+  font-weight: bold;
+}
+
+/* ===== Item hoverbox (Template:Item link) ===== */
+.c-item-hoverbox {
+  display: inline-block;
+}
+.c-item-hoverbox__display {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  padding: 8px;
+  transition: opacity 0.25s;
+}
+.c-item-hoverbox__display.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.c-item-hoverbox__display > .item-box + img {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+.c-item-hoverbox__display.is-left-of-activator > .item-box + img,
+.c-item-hoverbox__display.is-above-activator.is-right-side-of-viewport
+  > .item-box
+  + img,
+.c-item-hoverbox__display.is-below-activator.is-right-side-of-viewport
+  > .item-box
+  + img {
+  left: auto;
+  right: 100%;
+}
+.c-item-hoverbox__activator {
+  display: flex;
+  align-items: baseline;
+}
+.c-item-hoverbox--large .c-item-hoverbox__activator {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* ===== Mod box (Template:Mod) ===== */
+.modbox {
+  float: right;
+}
+.modbox table {
+  width: 100%;
+  float: right;
+  clear: both;
+  margin: 0 0 0.8em 0;
+}
+
+/* ===== Skill progression table (Template:Skill progression) ===== */
+.skill-progression-table {
+  text-align: center;
+}
+
+/* ===== Item table (Template:Item table) ===== */
+.item-table {
+  text-align: center;
+  max-width: 100%;
+}
+
+/* ===== Main page ===== */
+.page-Path_of_Exile_Wiki .firstHeading {
+  display: none !important;
+}
+.mainpage-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+.mainpage-header h1 {
+  margin-bottom: 20px;
+  border: none;
+  line-height: 1.1 !important;
+  color: #ffaf46 !important;
+  text-shadow: 0px 0px 10px rgba(209, 28, 0, 1);
+}
+.mainpage-header .h1-1,
+.mainpage-header .h1-2 {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(154, 2, 0, 0.9) 0%,
+    rgba(154, 2, 0, 0) 65%,
+    rgba(154, 2, 0, 0) 100%
+  );
+}
+.mainpage-header .h1-1 {
+  font-size: 26px;
+  letter-spacing: 0.07em;
+}
+.mainpage-header .h1-2 {
+  padding: 0 0.2em;
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+.mainpage-version {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+.mainpage-version > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.mainpage-version > div:first-child {
+  width: 100%;
+}
+.mainpage-version > div:last-child {
+  text-align: center;
+}
+.mainpage-news {
+  margin: -12px -0.7em;
+}
+.mainpage-news > div {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 12px 0.7em;
+}
+.mainpage-news > div > div {
+  display: table-row;
+}
+.mainpage-news .date,
+.mainpage-news .title {
+  display: table-cell;
+  vertical-align: middle;
+}
+.mainpage-news .date > div {
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 122%;
+  line-height: 1.1;
+  background-color: #332f24;
+}
+.mainpage-skills {
+  width: 100%;
+  text-align: center;
+}
+.mainpage-skills tr + tr td {
+  padding-top: 12px;
+}
+.mainpage-equipment {
+  width: 100%;
+  text-align: center;
+}
+.mainpage-equipment tr + tr td {
+  padding-top: 12px;
+}
+.mainpage-acts {
+  width: 100%;
+}
+.mainpage-acts td {
+  vertical-align: top;
+}
+.mainpage-mechanics {
+  width: 100%;
+}
+.mainpage-mechanics td {
+  vertical-align: top;
+}

@@ -1,0 +1,1208 @@
+/*
+ * This stylesheet is loaded on desktop only.
+ * 
+ * Desktop-only theme styles should go in MediaWiki:Vector.css.
+ * Mobile-only styles should go in MediaWiki:Mobile.css.
+ * Sitewide styles should go in MediaWiki:Sitewide.css.
+ */
+@import url("https://www.poewiki.net/wiki/MediaWiki:Sitewide.css?action=raw&ctype=text/css");
+
+/* Links */
+#content a.external {
+  padding-right: 12px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJAgMAAACd/+6DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QILAiAEXthF5QAAAAlQTFRFV8jI////8sRiiS6XIAAAAAJ0Uk5TAAB2k804AAAAAWJLR0QB/wIt3gAAACRJREFUCNdjCM1qYAgNa2BYFdnAMFW1gWHKVAeGqZEIvGqlAwDRaAuu3hIlOQAAAABJRU5ErkJggg==")
+    no-repeat right center transparent;
+}
+
+/* ===== Table cell templates ===== */
+table.wikitable .table-yes,
+table.wikitable .table-no,
+table.wikitable .table-na {
+  vertical-align: middle;
+  text-align: center;
+}
+table.wikitable .table-yes {
+  /*background-color: #1e261b !important;*/
+}
+table.wikitable .table-no {
+  /*background-color: #261b1b !important;*/
+}
+table.wikitable .table-na {
+  /*background-color: #211f19 !important;*/
+  color: #5e4f45;
+}
+
+/* ===== Category tree ===== */
+.CategoryTreeEmptyBullet {
+  color: #5e4f45;
+}
+.CategoryTreeToggle {
+  color: #16678a;
+}
+
+/* Math extension */
+.mwe-math-fallback-image-inline {
+  filter: none !important;
+}
+.mwe-math-fallback-image-display,
+.mwe-math-mathml-display {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  margin-left: 1.6em !important;
+}
+
+/* Cargo extension */
+#mw-content-text .cargoTable tr:nth-child(odd) {
+  background: #26231b;
+}
+#mw-content-text .cargoTable tr:nth-child(even) {
+  background: #211f18;
+}
+#mw-content-text .cargoTable th {
+  padding: 5px;
+  background-color: #332f24;
+  border: 1px solid #1a1812;
+}
+#mw-content-text .cargoTable td {
+  padding: 5px;
+  border: 1px solid #1a1812;
+}
+
+/* This governs the sections on the Community portal */
+.cpbox {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+.cpbox #admins {
+  box-sizing: border-box;
+  width: calc(33% - 10px);
+  margin: 5px;
+  flex-grow: 1;
+  min-width: 300px;
+}
+
+.cpbox #help {
+  box-sizing: border-box;
+  width: calc(67% - 10px);
+  margin: 5px;
+  flex-grow: 1;
+}
+.feature {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Default style for navigation boxes */
+.navbox {
+  /* Navbox container style */
+  box-sizing: border-box;
+  border: 1px solid #75511d;
+  width: 100%;
+  clear: both;
+  font-size: 88%;
+  text-align: center;
+  padding: 1px;
+  margin: 1em auto 0; /* Prevent preceding content from clinging to navboxes */
+}
+.navbox .navbox {
+  margin-top: 0; /* No top margin for nested navboxes */
+}
+.navbox + .navbox {
+  margin-top: -1px; /* Single pixel border between adjacent navboxes */
+}
+.navbox-inner,
+.navbox-subgroup {
+  width: 100%;
+}
+.navbox-group,
+.navbox-title,
+.navbox-abovebelow {
+  padding: 0.25em 1em; /* Title, group and above/below styles */
+  line-height: 1.5em;
+  text-align: center;
+}
+th.navbox-group {
+  /* Group style */
+  white-space: nowrap;
+  /* @noflip */
+  text-align: right;
+}
+.navbox,
+.navbox-subgroup {
+  background: #101010; /* Background color */
+}
+.navbox-list {
+  line-height: 1.5em;
+  border-color: #101010; /* Must match background color */
+}
+.navbox th,
+.navbox-title {
+  background: #141414; /* Level 1 color */
+}
+.navbox-abovebelow,
+th.navbox-group,
+.navbox-subgroup .navbox-title {
+  background: #101010; /* Level 2 color */
+}
+.navbox-subgroup .navbox-group,
+.navbox-subgroup .navbox-abovebelow {
+  background: #141414; /* Level 3 color */
+}
+.navbox-even {
+  background: #101010; /* Even row striping */
+}
+.navbox-odd {
+  background: transparent; /* Odd row striping */
+}
+.navbox .hlist td dl,
+.navbox .hlist td ol,
+.navbox .hlist td ul,
+.navbox td.hlist dl,
+.navbox td.hlist ol,
+.navbox td.hlist ul {
+  padding: 0.125em 0; /* Adjust hlist padding in navboxes */
+}
+
+/* Default styling for Navbar template */
+.navbar {
+  display: inline;
+  font-size: 88%;
+  font-weight: normal;
+}
+.navbar ul {
+  display: inline;
+  white-space: nowrap;
+}
+.mw-body-content .navbar ul {
+  line-height: inherit;
+}
+.navbar li {
+  word-spacing: -0.125em;
+}
+.navbar.mini li abbr[title] {
+  font-variant: small-caps;
+  border-bottom: none;
+  text-decoration: none;
+  cursor: inherit;
+}
+/* Navbar styling when nested in infobox and navbox */
+.infobox .navbar {
+  font-size: 100%;
+}
+.navbox .navbar {
+  display: block;
+  font-size: 100%;
+}
+.navbox-title .navbar {
+  /* @noflip */
+  float: left;
+  /* @noflip */
+  text-align: left;
+  /* @noflip */
+  margin-right: 0.5em;
+  width: 6em;
+}
+
+/* 'show'/'hide' buttons created dynamically by the CollapsibleTables javascript
+    in [[MediaWiki:Common.js]] are styled here so they can be customised. */
+.collapseButton {
+  /* @noflip */
+  float: right;
+  font-weight: normal;
+  /* @noflip */
+  margin-left: 0.5em;
+  /* @noflip */
+  text-align: right;
+  width: auto;
+}
+/* In navboxes, the show/hide button balances the v·d·e links
+    from [[Template:Navbar]], so they need to be the same width. */
+.navbox .collapseButton {
+  width: 6em;
+}
+
+/* Styling for JQuery makeCollapsible, matching that of collapseButton */
+.mw-collapsible-toggle {
+  font-weight: normal;
+  /* @noflip */
+  text-align: right;
+}
+.navbox .mw-collapsible-toggle {
+  width: 6em;
+}
+
+/* Style for horizontal lists (separator following item).
+    Note: hlist formatting will break if the resulting HTML lacks a breakable character
+    between list items. This happens when the following conditions are true:
+    1) The list is made using wiki markup (where HTML is built by parser.php)
+    2) HTMLTidy is disabled or unavailable (such as on Special: pages)
+    In such cases, building lists with .hlist using HTML instead of wiki markup
+    will work around this problem. See also [[Bugzilla:39617]].
+    IE8-specific classes are assigned in [[MediaWiki:Common.js/IEFixes.js]].
+    Last updated: September 23, 2012
+    @maintainer: [[User:Edokter]]
+    @revision: 2.0
+ */
+.skin-vector .hlist dl {
+  line-height: 1.5em;
+}
+.hlist dl,
+.hlist ol,
+.hlist ul {
+  margin: 0;
+  padding: 0;
+}
+/* Display list items inline and make them nowrap */
+.hlist dd,
+.hlist dt,
+.hlist li {
+  margin: 0;
+  display: inline;
+}
+/* Display nested lists inline and allow them to wrap */
+.hlist dl dl,
+.hlist dl ol,
+.hlist dl ul,
+.hlist ol dl,
+.hlist ol ol,
+.hlist ol ul,
+.hlist ul dl,
+.hlist ul ol,
+.hlist ul ul {
+  display: inline;
+  white-space: normal;
+}
+/* Generate interpuncts */
+.hlist dt:after {
+  content: ":";
+}
+.hlist dd:after,
+.hlist li:after {
+  content: " ·";
+  font-weight: bold;
+}
+.hlist dd:last-child:after,
+.hlist dt:last-child:after,
+.hlist li:last-child:after {
+  content: none;
+}
+/* For IE8 */
+.hlist dd.hlist-last-child:after,
+.hlist dt.hlist-last-child:after,
+.hlist li.hlist-last-child:after {
+  content: none;
+}
+/* Add parentheses around nested lists */
+.hlist dd dd:first-child:before,
+.hlist dd dt:first-child:before,
+.hlist dd li:first-child:before,
+.hlist dt dd:first-child:before,
+.hlist dt dt:first-child:before,
+.hlist dt li:first-child:before,
+.hlist li dd:first-child:before,
+.hlist li dt:first-child:before,
+.hlist li li:first-child:before {
+  content: "(";
+  font-weight: normal;
+}
+.hlist dd dd:last-child:after,
+.hlist dd dt:last-child:after,
+.hlist dd li:last-child:after,
+.hlist dt dd:last-child:after,
+.hlist dt dt:last-child:after,
+.hlist dt li:last-child:after,
+.hlist li dd:last-child:after,
+.hlist li dt:last-child:after,
+.hlist li li:last-child:after {
+  content: ")";
+  font-weight: normal;
+}
+/* For IE8 */
+.hlist dd dd.hlist-last-child:after,
+.hlist dd dt.hlist-last-child:after,
+.hlist dd li.hlist-last-child:after,
+.hlist dt dd.hlist-last-child:after,
+.hlist dt dt.hlist-last-child:after,
+.hlist dt li.hlist-last-child:after,
+.hlist li dd.hlist-last-child:after,
+.hlist li dt.hlist-last-child:after,
+.hlist li li.hlist-last-child:after {
+  content: ")";
+  font-weight: normal;
+}
+/* Put numbers in front of ordered list items */
+.hlist.hnum ol {
+  counter-reset: list-item;
+}
+.hlist.hnum ol > li {
+  counter-increment: list-item;
+}
+.hlist.hnum ol > li:before {
+  content: counter(list-item) " ";
+}
+.hlist.hnum dd ol > li:first-child:before,
+.hlist.hnum dt ol > li:first-child:before,
+.hlist.hnum li ol > li:first-child:before {
+  content: "(" counter(list-item) " ";
+}
+
+/* Styling for JQuery makeCollapsible, matching that of collapseButton */
+.mw-collapsible-toggle {
+  font-weight: normal;
+  /* @noflip */
+  text-align: right;
+}
+.navbox .mw-collapsible-toggle {
+  width: 6em;
+}
+.navbox .selflink {
+  color: #00b6ff;
+}
+
+/* ===== External link icon for PDF files ===== */
+.mw-parser-output a[href$=".pdf"].external,
+.mw-parser-output a[href*=".pdf?"].external,
+.mw-parser-output a[href*=".pdf#"].external,
+.mw-parser-output a[href$=".PDF"].external,
+.mw-parser-output a[href*=".PDF?"].external,
+.mw-parser-output a[href*=".PDF#"].external {
+  padding-right: 18px;
+  background: url("//upload.wikimedia.org/wikipedia/commons/2/23/Icons-mini-file_acrobat.gif")
+    no-repeat right;
+}
+
+/* ===== Plainlist ===== */
+.plainlist ul {
+  line-height: inherit;
+  list-style: none outside none;
+  margin: 0;
+}
+.plainlist ul li {
+  margin-bottom: 0;
+}
+
+/* ===== Multiple column layout for lists ===== */
+.multicol-15 ul,
+.multicol-15 ol {
+  column-width: 15em;
+}
+
+/* ===== Key Press Template ===== */
+.keyboard-key {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.75);
+  border-width: 1px;
+  border-style: solid;
+  border-color: #756b4f #70664b #574f3a;
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+  font-family: inherit;
+  font-size: 0.85em;
+  color: #1a1712;
+  white-space: nowrap;
+  background: linear-gradient(to bottom, #574f3a 0%, #756b4f 100%);
+}
+
+/* Module:Item acquisition | Template:Item acquisition */
+.upgraded-from-set:not(:first-child) td {
+  border-top-style: dashed !important;
+  border-top-width: 3px !important;
+  border-top-color: #111 !important;
+}
+
+/* ===== Skill (Module:Skill) ==== */
+
+/* Template:Skill */
+
+.skill-box-page-container {
+  float: right;
+}
+
+/* resize skill screenshot accordingly */
+.skill-box-page-container img {
+  max-width: 400px;
+  height: auto;
+}
+
+.skill-box-table {
+  max-width: 400px;
+}
+
+/* force the header section to be as small as possible */
+.skill-box-table th {
+  width: 1%;
+}
+
+.skill-box-table th,
+.skill-box-table td {
+  font-size: 12px;
+}
+
+.skill-box-table td[colspan="2"] {
+  font-size: inherit;
+}
+
+/* ===== Status Infocard (Template:Status) ===== */
+.status-icon {
+  height: 96px;
+}
+.status-icon .image,
+.status-icon .frame {
+  height: 100%;
+}
+.status-icon .image img {
+  margin-top: 16px;
+  width: 64px;
+  height: 64px;
+}
+.status-icon .frame {
+  margin-top: -96px;
+}
+.status-icon .frame img {
+  width: 98px;
+  height: 96px;
+}
+
+/* ===== Area Infocard (Template:Area) ==== */
+.infocard.area > .topbar > .left,
+.infocard.area > .topbar > .right {
+  width: 27px;
+}
+
+/* ===== Module:Passive skill ===== */
+
+.passive-line {
+  display: block;
+}
+
+.passive-hover {
+  display: none;
+  position: relative;
+}
+
+.passive-hover:hover {
+  display: inline;
+}
+
+.passive-line:hover .passive-hover {
+  display: inline;
+}
+
+.passive-icon-container {
+  position: relative;
+  margin: 0px auto;
+}
+
+.passive-icon-frame {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.passive-icon-container a {
+  position: absolute;
+  z-index: 0;
+}
+
+/* sizes of icons have been adjusted to look similar to ingame placement */
+.passive-icon-type__basic {
+  width: 60px;
+  height: 60px;
+}
+
+.passive-icon-type__basic .passive-icon-frame {
+  width: 60px;
+  height: 60px;
+  background-image: url("https://www.poewiki.net/w/images/a/a1/Basic_passive_frame.png");
+  background-repeat: round;
+}
+
+.passive-icon-type__basic a,
+.passive-icon-type__basic img {
+  left: 10px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.passive-icon-type__notable {
+  width: 100px;
+  height: 100px;
+}
+
+.passive-icon-type__notable .passive-icon-frame {
+  width: 100px;
+  height: 100px;
+  background-image: url("https://www.poewiki.net/w/images/5/50/Notable_passive_frame.png");
+  background-repeat: round;
+}
+
+.passive-icon-type__notable a,
+.passive-icon-type__notable img {
+  left: 14px;
+  top: 14px;
+  width: 72px;
+  height: 72px;
+}
+
+.passive-icon-type__keystone {
+  width: 175px;
+  height: 175px;
+}
+
+.passive-icon-type__keystone .passive-icon-frame {
+  width: 175px;
+  height: 175px;
+  background-image: url("https://www.poewiki.net/w/images/5/5a/Keystone_passive_frame.png");
+  background-repeat: round;
+}
+
+.passive-icon-type__keystone a,
+.passive-icon-type__keystone img {
+  left: 36px;
+  top: 36px;
+  height: 100px;
+  width: 100px;
+}
+
+.passive-icon-type__ascendancy_basic {
+  width: 60px;
+  height: 60px;
+}
+
+.passive-icon-type__ascendancy_basic .passive-icon-frame {
+  width: 60px;
+  height: 60px;
+  background-image: url("https://www.poewiki.net/w/images/f/fa/Ascendancy_basic_passive_frame.png");
+  background-repeat: round;
+}
+
+.passive-icon-type__ascendancy_basic a,
+.passive-icon-type__ascendancy_basic img {
+  left: 10px;
+  top: 10px;
+  width: 39px;
+  height: 40px;
+}
+
+.passive-icon-type__ascendancy_notable {
+  width: 100px;
+  height: 100px;
+}
+
+.passive-icon-type__ascendancy_notable .passive-icon-frame {
+  width: 100px;
+  height: 100px;
+  background-image: url("https://www.poewiki.net/w/images/2/26/Ascendancy_notable_passive_frame.png");
+  background-repeat: round;
+}
+
+.passive-icon-type__ascendancy_notable a,
+.passive-icon-type__ascendancy_notable img {
+  left: 16px;
+  top: 16px;
+  width: 68px;
+  height: 68px;
+}
+
+/* ===== Gem Infobox ===== */
+.GemInfoboxContainer {
+  width: 300px;
+  float: right;
+  padding: 0px;
+  margin: 0px 0px 5px 5px;
+  border-collapse: collapse;
+  background-color: #1a1812;
+  font-size: 12px;
+  line-height: 16px;
+  color: #bfbfbf;
+}
+.GemInfoboxInfo {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+.GemInfoboxInfo td {
+  background-color: #26231b;
+  color: #ffffff;
+  padding: 5px;
+}
+.GemInfoboxInfo td:first-child {
+  background-color: #332f24;
+  color: #bfbfbf;
+}
+.GemInfoboxHeader {
+  padding: 2px 2px 0px 2px;
+}
+.GemInfoboxHeader > table {
+  border-collapse: collapse;
+}
+.GemInfoboxHeader td:first-child {
+  width: 100%;
+  padding: 5px 5px 5px 5px;
+  text-align: left;
+  font-size: 11px;
+}
+.GemInfoboxHeaderName {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #1ba29b;
+}
+.GemInfoboxFooter {
+  text-align: center;
+  margin: 0px 2px 2px 2px;
+}
+.GemInfoboxFooter img {
+  width: 100%;
+  height: auto;
+}
+.GemInfoboxDescription {
+  color: #1ba29b;
+}
+.GemInfoboxModifier {
+  color: #8888ff;
+}
+.GemInfoboxDescription,
+.GemInfoboxModifier {
+  padding: 5px;
+  margin: 0px 2px 2px 2px;
+  background-color: #26231b;
+  text-align: center;
+}
+
+/* ===== Support Gem ID template (Template:Id) ===== */
+.support-gem-id-red,
+.support-gem-id-green,
+.support-gem-id-blue {
+  width: 1em;
+  color: white !important;
+  background-color: #c51e1e;
+  display: inline-block;
+  text-align: center;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.support-gem-id-red {
+  background-color: #c51e1e;
+}
+.support-gem-id-green {
+  background-color: #08a842;
+}
+.support-gem-id-blue {
+  background-color: #4163c9;
+}
+
+/* ===== Module:Util ===== */
+
+.module-error {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #7d1e1e;
+  padding: 0.1em 0.25em;
+}
+
+/* ===== Module:Quest & Template:Quest ===== */
+
+.quest-table {
+  width: 300px;
+  color: #bfbfbf;
+  float: right;
+  padding: 0.1em;
+  background-color: #1a1812;
+  margin: 0px 0px 5px 5px;
+}
+
+.quest-table td.quest-table-iconbox {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.quest-table td.quest-table-iconbox img {
+  width: 100px;
+  height: 100px;
+}
+
+.quest-table th {
+  text-align: right;
+  font-weight: bold;
+  background-color: #332f24;
+}
+
+.quest-table td {
+  text-align: center;
+  background-color: #26231b;
+}
+
+.quest-table td img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* ===== Legacy Variant Tables (Template:Legacy variant table row) ===== */
+.legacy-stats {
+  font-family: "Fontin-SmallCaps", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.857em;
+  font-variant-ligatures: none;
+  color: #55548c;
+}
+.legacy-stats .text-color.-mod {
+  font-size: 1.167em;
+  color: #8888ff;
+}
+.legacy-stats .text-color.-not {
+  font-size: 1.167em;
+  text-decoration: line-through;
+  color: #7f7f7f;
+}
+
+/* ===== Template:SMQ query mods (from Module:SMW query) ===== */
+
+.mod-table {
+  width: 100%;
+  margin: 0px !important;
+}
+.mod-table-header {
+  width: 100%;
+}
+.mod-table-header .mw-collapsible-toggle {
+}
+.mod-table-header-container {
+  display: table;
+}
+.mod-table-header-stat {
+  display: table-cell;
+  vector-effect: middle;
+  text-align: left;
+  width: 100%;
+}
+.mod-table-header-modgroup {
+  display: table-cell;
+  vector-effect: middle;
+  text-align: right;
+  padding-right: 1em;
+}
+.mod-table-cell-name {
+  width: 9em;
+  min-width: 9em;
+  max-width: 9em;
+}
+.mod-table-cell-level {
+  width: 1.4em;
+  min-width: 1.4em;
+  max-width: 1.4em;
+}
+.mod-table-cell-stat {
+  width: 32em;
+  min-width: 32em;
+  max-width: 32em;
+}
+.mod-table-cell-tags {
+  width: 100%;
+}
+
+/* ===== Generic table formatting ===== */
+.table-yes > span {
+  color: #0f0;
+}
+
+.table-no > span {
+  color: #f00;
+}
+
+.table-cell-coloured {
+  color: #000;
+  text-align: left;
+}
+.table-cell-coloured a {
+  color: #666;
+}
+.table-cell-coloured .reference a {
+  margin-left: 2px;
+}
+.table-cell-yes {
+  background-color: #080 !important;
+}
+.table-cell-major {
+  background-color: #8c0 !important;
+}
+.table-cell-partial {
+  background-color: #ee0 !important;
+}
+.table-cell-minor {
+  background-color: #d80 !important;
+}
+.table-cell-no {
+  background-color: #e00 !important;
+}
+.table-cell-unknown {
+  background-color: #888 !important;
+}
+
+.table-cell-checkmark {
+  color: lime;
+  text-align: center;
+  font-weight: bold;
+}
+
+.table-cell-xmark {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* for table cells representing items*/
+
+.table-cell-dex {
+  color: rgb(0, 255, 0);
+}
+.table-cell-int {
+  color: rgb(90, 90, 255);
+}
+.table-cell-str {
+  color: rgb(255, 0, 0);
+}
+.table-cell-str {
+  color: rgb(255, 0, 0);
+}
+.table-cell-prismatic {
+  color: rgb(255, 255, 255);
+}
+
+/* Responsive tables */
+.c-responsive-table {
+  margin-bottom: 20px;
+}
+.c-responsive-table__toolbar {
+  margin-bottom: 2px;
+}
+.c-responsive-table__toolbar-button {
+  display: inline-block;
+  margin-right: 0.4em;
+  border: none;
+  font-size: 12px;
+  color: #7c8489;
+  background: #27292a;
+}
+.c-responsive-table__toolbar-button:hover,
+.c-responsive-table__toolbar-button:focus {
+  color: #a5b2bb;
+  text-shadow: none;
+  background: #343738;
+}
+.c-responsive-table__toolbar-button svg {
+  display: inline-block;
+  margin-right: 0.2em;
+  vertical-align: -0.125em;
+  width: 1em;
+  height: 1em;
+}
+.c-responsive-table__scroll {
+  display: block;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+  max-height: 50vh;
+}
+@media screen and (min-height: 600px) {
+  .c-responsive-table__scroll {
+    max-height: 25vh;
+  }
+}
+.c-responsive-table.is-expanded .c-responsive-table__scroll {
+  max-height: none !important;
+  overflow-y: visible;
+}
+.c-responsive-table__table {
+  margin: 0 !important;
+}
+.c-responsive-table__table tr:first-of-type th {
+  position: sticky;
+  top: 0px;
+}
+/* Needs to be set to -1px or a row of pixels is visible above the header on chrome */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .c-responsive-table__table tr:first-of-type th {
+    top: -1px;
+  }
+}
+
+/* Tooltip OLD */
+.tooltip-activator {
+  position: relative;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: initial;
+  cursor: help;
+}
+.tooltip-activator > .tooltip-content {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  bottom: 100%;
+  left: 50%;
+  z-index: 1;
+  margin-left: -150px;
+  border: 1px solid #7f7f7f;
+  padding: 8px 12px;
+  width: 300px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: normal;
+  color: #7f7f7f;
+  background-color: #000;
+  transition: opacity 0.5s;
+}
+.tooltip-activator:hover > .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 
+ Atlas of Worlds 
+ Template:Atlas of Worlds
+ Widget:Atlas of Worlds
+ */
+
+.atlas_of_worlds {
+  position: relative;
+}
+
+.atlas_of_worlds .atlas_table {
+  display: none;
+}
+
+canvas#atlas_of_worlds {
+  background-image: url("https://www.poewiki.net/w/images/b/b8/Atlas_of_Worlds_background.jpg");
+}
+
+.atlas_of_worlds .region_button {
+  position: absolute;
+  width: max-content;
+}
+
+.atlas_of_worlds .map_container {
+  position: absolute;
+}
+
+.atlas_of_worlds .map_name,
+.atlas_of_worlds .map_tier,
+.atlas_of_worlds .map_drop {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+}
+
+.atlas_of_worlds .map_name,
+.atlas_of_worlds .map_tier {
+  font-weight: bold;
+  position: absolute;
+}
+
+.atlas_of_worlds .map_name {
+  top: -37px;
+  width: 200px;
+  left: -80px;
+}
+
+.atlas_of_worlds .map_tier {
+  top: 18px;
+  /* horizontal align works better with 38px instead of 39 */
+  width: 38px;
+}
+
+.atlas_of_worlds .map_icon {
+  background-image: url("https://www.poewiki.net/w/images/9/98/Map_base_icon.png");
+  background-size: cover;
+  top: -18px;
+  position: absolute;
+}
+
+.atlas_of_worlds .map_icon,
+.atlas_of_worlds .map_icon img {
+  width: 39px;
+  height: 39px;
+}
+
+.atlas_of_worlds .map_drop_container {
+  width: max-content;
+  height: max-content;
+}
+
+.atlas_of_worlds .map_drop img {
+  display: block;
+}
+
+.atlas_of_worlds .map_drop {
+  display: none;
+  z-index: 2;
+}
+
+.atlas_of_worlds .map_container:hover .map_drop {
+  display: block;
+  position: relative;
+  float: right;
+  top: 38px;
+  left: -50%;
+}
+
+.atlas_of_worlds .low_tier {
+  color: rgb(255, 255, 255);
+}
+
+.atlas_of_worlds .mid_tier {
+  color: rgb(255, 210, 100);
+}
+
+.atlas_of_worlds .high_tier {
+  color: rgb(240, 30, 10);
+}
+
+.low_tier .map_icon img:not(.low_tier) {
+  display: none;
+}
+
+.mid_tier .map_icon img:not(.mid_tier) {
+  display: none;
+}
+
+.high_tier .map_icon img:not(.high_tier) {
+  display: none;
+}
+
+/* 
+ Monster Javascript infobox styles
+ 
+ Template:Monster
+ Widget:Monster
+ */
+
+/*
+ Layout is nested in multiple tables
+ 
+ table.monster_container
+ - tr.monster (one each per monster)
+ -- table.monster_info_container
+ --- tr.monster_name 
+ --- tr.controls
+ ---- table.controls
+ --- tr.monster_table
+ ---- table.monster_table
+ --- tr.monster_stats
+ ---- table.monster_stts
+ */
+
+table.monster_container {
+  width: 800px !important;
+  float: right;
+}
+
+tr.monster td {
+  width: 800px;
+}
+
+.monster_info_container {
+  border-collapse: collapse;
+}
+
+.monster_info_container > tbody > tr > td,
+.monster_info_container > tbody > tr > th {
+  padding: 0px;
+}
+
+tr.monster_name {
+  border: solid white 1px;
+}
+
+tr.monster_name th {
+}
+
+.monster_info_container table {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
+.controls th {
+  min-width: max-content;
+}
+
+.controls td {
+  width: 100%;
+}
+
+.controls input:not([type="checkbox"]),
+select {
+  width: 100%;
+}
+
+/* 
+ Module:Minimap
+ */
+
+.minimap_icon {
+  background-image: url("https://www.poewiki.net/w/images/1/18/Minimap_icons.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  display: inline-block;
+}
+
+.minimap_icon.minimap_grid {
+  display: grid;
+}
+
+/* Used by both inline boxes and grid cells in the overall display */
+.minimap_64 {
+  width: 64px;
+  height: 64px;
+}
+
+.minimap_32 {
+  width: 32px;
+  height: 32px;
+}
+
+.minimap_16 {
+  width: 16px;
+  height: 16px;
+}
+
+/* For the inline infoboxes */
+.minimap_icon.minimap_64 {
+  background-size: 896px auto;
+}
+
+.minimap_icon.minimap_32 {
+  background-size: 448px auto;
+}
+
+.minimap_icon.minimap_16 {
+  background-size: 224px auto;
+}
+
+.minimap_icon.tooltip-activator,
+.minimap_icon .tooltip-activator {
+  border: none;
+}
+
+/* Clearfix */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Helpers */
+.u-truncate-line {
+  display: block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
